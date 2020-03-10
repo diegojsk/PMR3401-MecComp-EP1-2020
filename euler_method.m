@@ -1,9 +1,9 @@
 function Y = euler_method(f,h,yi,xi,xf)
-%% Euler Method
-% Return the solution of a 
+%% Euler's Method
+% Return the solution of Y of Y' = f(X,Y)
 %
-%%
-i = 0;
+%% Algorithm
+i = 1;
 y(i) = yi;
 x(i) = xi;
 steps = (xf-xi)/h;
