@@ -1,17 +1,17 @@
-%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2019
+%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
 %  Exercício Programa 1
 %
 %  Autores: Diego Jun Sato Kurashima
 %           Felipe Gomes de Melo D'Elia
 %
 %% Teste
-%
-% y' = x => y = (x^2)/2
+% Testar Execução dos Métodos Numéricos: 
+% y' = 2x => y = x^2
 
-f = @(x,y) x;
-euler_method(f,1,0,0,5)
-runge_kutta_2(f,1,0,0,5)
-runge_kutta_4(f,1,0,0,5)
+f = @(x,y) 2*x;
+euler_method(f,1,1,1,5)
+runge_kutta_2(f,1,1,1,5)
+runge_kutta_4(f,1,1,1,5)
 
 %% Equação do Modelo
 %
@@ -42,4 +42,4 @@ f = @(t,y) [y(2);
             y(3);
             y(4) + y(1)];
         
-euler_method(f,1,[0; 0; 0; 0],0,5)
+euler_method(f,1,[1; 70; 3; 1/5],0,5)
