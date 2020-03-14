@@ -5,7 +5,7 @@
 %           Felipe Gomes de Melo D'Elia
 %
 
-%% Equação do Modelo
+%% Equação do Modelo como função anonima
 %
 % Setar parâmetros
 L1 = 2;
@@ -13,13 +13,12 @@ L2 = 2.5;
 L2eixo = 1.8;
 m1 = 450;
 m2 = 650;
-F1 = -0.5;
-F2 = -0.5;
 uIz = 2.7;
 R = 0.3;
 g = 9.81;
 veld = 80/3.6;
-
+F1 = -0.5*m1*g;
+F2 = -0.5*m2*g;
 % Equações 
 %
 % thetha1 = y(1)
@@ -54,7 +53,9 @@ f = @(t,y) [ y(2);
              y(3);
            ((1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)))*((1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(2) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
            
-        
-euler_method(f,0.1,[0; 0.4; 0; -0.1],0,60);
-runge_kutta_2(f,0.1,[0; 0.4; 0; -0.1],0,60);
-runge_kutta_4(f,0.1,[0; 0.4; 0; -0.1],0,60);
+% Resolução para diferentes métodos
+
+% h = 0.1
+euler_method(@veiculo, 0.1,[0; 0.4; 0; -0.1], 0, 60);
+runge_kutta_2(@veiculo, 0.1,[0; 0.4; 0; -0.1], 0, 60)
+runge_kutta_4(@veiculo, 0.1,[0; 0.4; 0; -0.1], 0, 60);
