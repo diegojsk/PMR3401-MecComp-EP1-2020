@@ -53,36 +53,42 @@ F2 = -0.5*m2*g;
            
 f = @(t,y) [ y(2);
             (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
-             y(3);
-           ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
-           
+             y(4);
+          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
+
+% Condicoes Iniciais
+
+xi = 0;
+xf = 60;
+yi = [0; 0.4; 0; -0.1];
+      
 %% Questão 1
 % Testar a resolução para diferentes valores de passo h
 
-i = 1;
+i = 1; % variável para identificacao dos graficos
 
 % Analisando para vários passos h
 for h = [0.5, 0.1, 0.05, 0.01]
     
     % Método de Euler
-    [t_e, theta_e] = euler_method(f, h,[0; 0.4; 0; -0.1], 0, 60);
-    figure(i*10 + 1);
+    [t_e, theta_e] = euler_method(f, h, yi, xi, xf);
+    figure(100 + i*10 + 1);
     plot(t_e, theta_e)
     grid
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
     legend(str,'Interpreter','latex');
     
     % Método de Runge-Kutta 2 Ordem
-    [t_rk2, theta_rk2] = runge_kutta_2(f, h,[0; 0.4; 0; -0.1], 0, 60);
-    figure(i*10 + 2);
+    [t_rk2, theta_rk2] = runge_kutta_2(f, h, yi, xi, xf);
+    figure(100 + i*10 + 2);
     plot(t_rk2, theta_rk2)
     grid
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
     legend(str,'Interpreter','latex');
     
     % Método de Runge-Kutta 4 Ordem
-    [t_rk4, theta_rk4] = runge_kutta_4(f, h,[0; 0.4; 0; -0.1], 0, 60);
-    figure(i*10 + 4);
+    [t_rk4, theta_rk4] = runge_kutta_4(f, h, yi, xi, xf);
+    figure(100 + i*10 + 4);
     plot(t_rk4, theta_rk4)
     grid
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
@@ -91,31 +97,150 @@ for h = [0.5, 0.1, 0.05, 0.01]
     i = i + 1;
 end
 
+
 %% Questão 2a
 
 m2 = 1000;
 
-% Usando passo 0.01
+f = @(t,y) [ y(2);
+            (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
+             y(4);
+          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
 
+% Usando passo 0.01
+h = 0.01;
+
+% Método de Euler
+[t_e, theta_e] = euler_method(f, h, yi, xi, xf);
+figure(200 + 10 + 1);
+plot(t_e, theta_e)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 2 Ordem
+[t_rk2, theta_rk2] = runge_kutta_2(f, h, yi, xi, xf);
+figure(200 + 10 + 2);
+plot(t_rk2, theta_rk2)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 4 Ordem
+[t_rk4, theta_rk4] = runge_kutta_4(f, h, yi, xi, xf);
+figure(200 + 10 + 4);
+plot(t_rk4, theta_rk4)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
 
 %% Questão 2b
 
 m2 = 200;
 
+f = @(t,y) [ y(2);
+            (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
+             y(4);
+          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
+
 % Usando passo 0.01
+h = 0.01;
+
+% Método de Euler
+[t_e, theta_e] = euler_method(f, h, yi, xi, xf);
+figure(200 + 20 + 1);
+plot(t_e, theta_e)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 2 Ordem
+[t_rk2, theta_rk2] = runge_kutta_2(f, h, yi, xi, xf);
+figure(200 + 20 + 2);
+plot(t_rk2, theta_rk2)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 4 Ordem
+[t_rk4, theta_rk4] = runge_kutta_4(f, h, yi, xi, xf);
+figure(200 + 20 + 4);
+plot(t_rk4, theta_rk4)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
 
 %% Questão 2c
 
 veld = 120/3.6;
 m2 = 650; % valor original
 
-% Usando passo 0.01
+f = @(t,y) [ y(2);
+            (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
+             y(4);
+          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
 
+% Usando passo 0.01
+h = 0.01;
+
+% Método de Euler
+[t_e, theta_e] = euler_method(f, h, yi, xi, xf);
+figure(200 + 30 + 1);
+plot(t_e, theta_e)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 2 Ordem
+[t_rk2, theta_rk2] = runge_kutta_2(f, h, yi, xi, xf);
+figure(200 + 30 + 2);
+plot(t_rk2, theta_rk2)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 4 Ordem
+[t_rk4, theta_rk4] = runge_kutta_4(f, h, yi, xi, xf);
+figure(200 + 30 + 4);
+plot(t_rk4, theta_rk4)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
 
 %% Questão 2d
 
 F1 = + 0.5*m1*g;
 veld = 80/3.6; % valor original
 
-% Usando passo 0.01
+f = @(t,y) [ y(2);
+            (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
+             y(4);
+          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
 
+% Usando passo 0.01
+h = 0.01;
+
+% Método de Euler
+[t_e, theta_e] = euler_method(f, h, yi, xi, xf);
+figure(200 + 40 + 1);
+plot(t_e, theta_e)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 2 Ordem
+[t_rk2, theta_rk2] = runge_kutta_2(f, h, yi, xi, xf);
+figure(200 + 40 + 2);
+plot(t_rk2, theta_rk2)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+    
+% Método de Runge-Kutta 4 Ordem
+[t_rk4, theta_rk4] = runge_kutta_4(f, h, yi, xi, xf);
+figure(200 + 40 + 4);
+plot(t_rk4, theta_rk4)
+grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
