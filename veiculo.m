@@ -1,3 +1,13 @@
+%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
+%  Exercício Programa 1
+%  Implementação de function @veiculo com as equações do veiculo
+%
+%  Autores: Diego Jun Sato Kurashima - 10274231
+%           Felipe Gomes de Melo D'Elia - 
+%
+
+%% Equações do Veiculo
+
 function f = veiculo(t,y)
 %% Equação do Modelo
 %

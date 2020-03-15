@@ -1,5 +1,13 @@
-function [X, Y] = euler_method(f,h,yi,xi,xf)
+%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
+%  Exercício Programa 1
+%  Implementação do Método de Euler
+%
+%  Autores: Diego Jun Sato Kurashima - 10274231
+%           Felipe Gomes de Melo D'Elia - 
+%
 %% Euler's Method
+
+function [X, Y] = euler_method(f,h,yi,xi,xf)
 % Return the solution of Y of Y' = f(X,Y)
 %
 % input f : function f of Y' = f(X,Y) 

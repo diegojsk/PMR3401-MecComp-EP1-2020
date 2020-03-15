@@ -1,13 +1,6 @@
-%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
-%  Exercício Programa 1
-%  Execução de testes para a implementação principal
-%
-%  Autores: Diego Jun Sato Kurashima - 10274231
-%           Felipe Gomes de Melo D'Elia - 
-%
-clear all
-clc
 %% Teste
+% Arquivo com testes para validar a implementação main.m
+
 %% Testar Execução dos Métodos Numéricos: 
 
 % y' = 2x => y = x^2
@@ -27,10 +20,5 @@ runge_kutta_4(@veiculo, 0.1,[0; 0.4; 0; -0.1], 0, 60);
 
 %% Testar Loop em lista e Plotagem de gráficos
 
-i = 1;
 for h = [0.1, 0.5, 1]
-    [X, Y] = euler_method(t,h,1,1,5)
-    figure(i)
-    plot(X, Y)
-    i = i + 1
-end
+    
