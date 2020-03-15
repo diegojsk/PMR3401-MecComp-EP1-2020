@@ -47,9 +47,9 @@ F2 = -0.5*m2*g;
 
 
 % f = @(t,y) [ y(2);
-%             (1/A0)*( A1*(y(2)^2) + A2*(y(4)^2) + A3*y(2) + A4*y(2) + A5);
+%             (1/A0)*( A1*(y(2)^2) + A2*(y(4)^2) + A3*y(2) + A4*y(4) + A5);
 %              y(3);
-%            ((1/B0)*( B1*((1/A0)*( A1*(y(2)^2) + A2*(y(4)^2) + A3*y(2) + A4*y(2)+ A5)) + B2*(y(2)^2) + B3*y(4) + B4 ))];
+%            ((1/B0)*( B1*((1/A0)*( A1*(y(2)^2) + A2*(y(4)^2) + A3*y(2) + A4*y(4)+ A5)) + B2*(y(2)^2) + B3*y(4) + B4 ))];
            
 f = @(t,y) [ y(2);
             (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
@@ -61,11 +61,11 @@ f = @(t,y) [ y(2);
 
 i = 1;
 
-%Lista com os passos de Teste
-for h = [1, 0.5, 0.1, 0.01]
+% Analisando para vários passos h
+for h = [0.5, 0.1, 0.05, 0.01]
     
     % Método de Euler
-    [t_e, theta_e] = euler_method(f, 0.1,[0; 0.4; 0; -0.1], 0, 60);
+    [t_e, theta_e] = euler_method(f, h,[0; 0.4; 0; -0.1], 0, 60);
     figure(i*10 + 1);
     plot(t_e, theta_e)
     grid
@@ -73,7 +73,7 @@ for h = [1, 0.5, 0.1, 0.01]
     legend(str,'Interpreter','latex');
     
     % Método de Runge-Kutta 2 Ordem
-    [t_rk2, theta_rk2] = runge_kutta_2(f, 0.1,[0; 0.4; 0; -0.1], 0, 60);
+    [t_rk2, theta_rk2] = runge_kutta_2(f, h,[0; 0.4; 0; -0.1], 0, 60);
     figure(i*10 + 2);
     plot(t_rk2, theta_rk2)
     grid
@@ -81,7 +81,7 @@ for h = [1, 0.5, 0.1, 0.01]
     legend(str,'Interpreter','latex');
     
     % Método de Runge-Kutta 4 Ordem
-    [t_rk4, theta_rk4] = runge_kutta_4(f, 0.1,[0; 0.4; 0; -0.1], 0, 60);
+    [t_rk4, theta_rk4] = runge_kutta_4(f, h,[0; 0.4; 0; -0.1], 0, 60);
     figure(i*10 + 4);
     plot(t_rk4, theta_rk4)
     grid
@@ -95,16 +95,27 @@ end
 
 m2 = 1000;
 
+% Usando passo 0.01
+
+
 %% Questão 2b
 
-m2 = 20;
+m2 = 200;
+
+% Usando passo 0.01
 
 %% Questão 2c
 
 veld = 120/3.6;
-m2 = 650; %valor original
+m2 = 650; % valor original
+
+% Usando passo 0.01
+
 
 %% Questão 2d
 
 F1 = + 0.5*m1*g;
 veld = 80/3.6; % valor original
+
+% Usando passo 0.01
+

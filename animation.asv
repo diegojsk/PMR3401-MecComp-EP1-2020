@@ -1,13 +1,22 @@
-% Este script gera uma anima??o do movimento dos ve?culos
+%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
+%  Exercício Programa 1
+%  Gerar animação do veiculo, baseado em exemplo_animation.m
+%
+%  Autores: Diego Jun Sato Kurashima - 10274231
+%           Felipe Gomes de Melo D'Elia - 
+%
+
+%%
+% Este script gera uma animacao do movimento dos ve?culos
 % Sendo: 
 %(xi,yi): A posi??o da massa i=(1,2)
 % Li: Comprimento do carro i=(1,2)
-% L2eixo: posi??o do eixo do segundo carro
+% L2eixo: posicao do eixo do segundo carro
 % ? preciso que esteja declarado:
 % Um vetor de tempo t e os g.d.l theta(1 e 2,t), ouseja, Uma das linhas tem theta1 e
-% ourta o theta2 com tempo nas colunas.
+% outra o theta2 com tempo nas colunas.
 
-% Este script gera uma anima??o cujo exemplo consta no moodle. Essa
+% Este script gera uma animacao cujo exemplo consta no moodle. Essa
 % anima??o n?o precisa constar no trabalho impresso e apenas serve para
 % ajudar a interpreta??o dos resultados caso haja interesse.
 
