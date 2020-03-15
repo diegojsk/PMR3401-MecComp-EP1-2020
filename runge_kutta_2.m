@@ -1,4 +1,4 @@
-function Y = runge_kutta_2(f,h,yi,xi,xf)
+function [X, Y] = runge_kutta_2(f,h,yi,xi,xf)
 %% Runge-Kutta 2 order Method
 %
 %% Algorithm
@@ -13,5 +13,5 @@ for i=1:steps
     x(:,i+1) = x(:,i) + h;
 end
  Y = y;  
-
+ X = x;
 end

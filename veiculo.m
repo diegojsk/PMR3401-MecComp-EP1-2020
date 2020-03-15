@@ -14,7 +14,7 @@ veld = 80/3.6;
 F1 = -0.5*m1*g;
 F2 = -0.5*m2*g;
 
-% Equações 
+% Variáveis de Estado
 %
 % thetha1 = y(1)
 % thetha1' = y(2)

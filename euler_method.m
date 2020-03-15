@@ -1,4 +1,4 @@
-function Y = euler_method(f,h,yi,xi,xf)
+function [X, Y] = euler_method(f,h,yi,xi,xf)
 %% Euler's Method
 % Return the solution of Y of Y' = f(X,Y)
 %
@@ -14,5 +14,6 @@ for i=1:steps
     y(:,i+1) = y(:,i) + h*f(x(:,i),y(:,i));
     x(:,i+1) = x(:,i) + h;
 end
- Y =  y;  
+ Y = y;
+ X = x;
 end

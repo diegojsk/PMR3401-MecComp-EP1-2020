@@ -1,4 +1,4 @@
-function Y = runge_kutta_4(f,h,yi,xi,xf)
+function [X, Y] = runge_kutta_4(f,h,yi,xi,xf)
 %% Runge-Kutta 4 order Method
 %
 %% Algorithm
@@ -14,6 +14,6 @@ for i=1:steps
     y(:,i+1) = y(:,i) + (h/6)*(k1 + 2*k2 + 2*k3 + k4);
     x(:,i+1) = x(:,i) + h;
 end
- Y =  y;  
-
+ Y = y;  
+ X = x;
 end
