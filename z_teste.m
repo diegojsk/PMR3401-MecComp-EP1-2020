@@ -29,8 +29,11 @@ runge_kutta_4(@veiculo, 0.1,[0; 0.4; 0; -0.1], 0, 60);
 
 i = 1;
 for h = [0.1, 0.5, 1]
-    [X, Y] = euler_method(t,h,1,1,5)
+    [X, Y] = euler_method(t,h,1,1,5);
     figure(i)
     plot(X, Y)
-    i = i + 1
+    grid
+    str = {'y'};
+    legend(str);
+    i = i + 1;
 end
