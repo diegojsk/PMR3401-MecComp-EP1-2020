@@ -288,9 +288,9 @@ grid
 hold on
     
 for n = 1:((xf-xi)/h)+1
-    % Calcular as aceleracoes
-    theta_rk4_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
-                       ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk4(1,n) - theta_rk4(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk4(1,n) - theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (-uIz*veld)*theta_rk4(4,n) + (L2eixo*sin(theta_rk4(3,n))*R*F2) ))];
+        % Calcular as aceleracoes
+        theta_rk4_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
+                          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk4(1,n) - theta_rk4(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk4(1,n) - theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (-uIz*veld)*theta_rk4(4,n) + (L2eixo*sin(theta_rk4(3,n))*R*F2) ))];
 end
 plot(t_rk4, theta_rk4_ll)
 grid
@@ -298,7 +298,7 @@ str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\thet
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
 ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);     
+title(["Solucao do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);     
     
 hold off
 %% Questão 2c
@@ -320,6 +320,9 @@ h = 0.01;
 figure(200 + 30 + 1);
 plot(t_e, theta_e)
 grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+
 hold on
     
 for n = 1:((xf-xi)/h)+1
@@ -331,9 +334,6 @@ plot(t_rk2, theta_rk2_ll)
 grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
-xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o Método de Euler e passo : 0.01"]); 
     
 hold off
     
@@ -343,20 +343,21 @@ hold off
 figure(200 + 30 + 2);
 plot(t_rk2, theta_rk2)
 grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+
 hold on
     
 for n = 1:((xf-xi)/h)+1
-    % Calcular as aceleracoes
-    theta_rk2_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
-                       ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk2(1,n) - theta_rk2(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk2(1,n) - theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (-uIz*veld)*theta_rk2(4,n) + (L2eixo*sin(theta_rk2(3,n))*R*F2) ))];
+        % Calcular as aceleracoes
+        theta_rk2_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
+                          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk2(1,n) - theta_rk2(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk2(1,n) - theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (-uIz*veld)*theta_rk2(4,n) + (L2eixo*sin(theta_rk2(3,n))*R*F2) ))];
 end
 plot(t_rk2, theta_rk2_ll)
 grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
-xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);     
+    
 hold off
     
 % Método de Runge-Kutta 4 Ordem
@@ -365,20 +366,20 @@ hold off
 figure(200 + 30 + 4);
 plot(t_rk4, theta_rk4)
 grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+
 hold on
     
 for n = 1:((xf-xi)/h)+1
-    % Calcular as aceleracoes
-    theta_rk4_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
-                       ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk4(1,n) - theta_rk4(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk4(1,n) - theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (-uIz*veld)*theta_rk4(4,n) + (L2eixo*sin(theta_rk4(3,n))*R*F2) ))];
+        % Calcular as aceleracoes
+        theta_rk4_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
+                          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk4(1,n) - theta_rk4(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk4(1,n) - theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (-uIz*veld)*theta_rk4(4,n) + (L2eixo*sin(theta_rk4(3,n))*R*F2) ))];
 end
 plot(t_rk4, theta_rk4_ll)
 grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
-xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);     
 
 hold off
     
@@ -402,6 +403,9 @@ h = 0.01;
 figure(200 + 40 + 1);
 plot(t_e, theta_e)
 grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+
 hold on
     
 for n = 1:((xf-xi)/h)+1
@@ -413,9 +417,6 @@ plot(t_rk2, theta_rk2_ll)
 grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
-xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para F1 = +0.5*m1*g N utilizando o Método de Euler e passo : 0.01"]);     
     
 hold off
     
@@ -425,6 +426,9 @@ hold off
 figure(200 + 40 + 2);
 plot(t_rk2, theta_rk2)
 grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+
 hold on
     
 for n = 1:((xf-xi)/h)+1
@@ -436,9 +440,7 @@ plot(t_rk2, theta_rk2_ll)
 grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
-xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para F1 = +0.5*m1*g N utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);         
+    
 hold off
     
 % Método de Runge-Kutta 4 Ordem
@@ -447,6 +449,9 @@ hold off
 figure(200 + 40 + 4);
 plot(t_rk4, theta_rk4)
 grid
+str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
+legend(str,'Interpreter','latex');
+
 hold on
     
 for n = 1:((xf-xi)/h)+1
@@ -458,9 +463,6 @@ plot(t_rk4, theta_rk4_ll)
 grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
-xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para F1 = +0.5*m1*g N utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);         
 
 hold off
     

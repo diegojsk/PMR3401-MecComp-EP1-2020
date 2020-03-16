@@ -35,5 +35,8 @@ for h = [0.1, 0.5, 1]
     grid
     str = {'y'};
     legend(str);
+    xlabel("x");
+    ylabel("y");
+    title(["Usando passo:"; h]);
     i = i + 1;
 end

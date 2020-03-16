@@ -20,7 +20,7 @@
 % animacao nao precisa constar no trabalho impresso e apenas serve para
 % ajudar a interpretacao dos resultados caso haja interesse.
 
-
+l=0.75;
 
 for ti=1:30:numel(t)
     
