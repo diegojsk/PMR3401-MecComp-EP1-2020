@@ -10,9 +10,9 @@
 function [X, Y] = euler_method(f,h,yi,xi,xf)
 % Return the solution of Y of Y' = f(X,Y)
 %
-% input f : function f of Y' = f(X,Y) 
+% input f : function f of Y' = f(X,Y)
 %       h : step
-%     
+%
 %% Algorithm
 i = 1;
 y(:,i) = yi;
@@ -22,6 +22,6 @@ for i=1:steps
     y(:,i+1) = y(:,i) + h*f(x(:,i),y(:,i));
     x(:,i+1) = x(:,i) + h;
 end
- Y = y;
- X = x;
+Y = y;
+X = x;
 end
