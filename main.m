@@ -9,6 +9,9 @@ clear all
 clc
 %% Equação do Modelo como função anonima
 %
+clear all;
+close all;
+clc;
 % Setar parâmetros
 L1 = 2;
 L2 = 2.5;
@@ -78,6 +81,7 @@ for h = [0.5, 0.1, 0.05, 0.01]
     grid
     hold on
 
+    theta_e_ll = zeros(2, ((xf-xi)/h)+1);
     % Calcular as aceleracoes
     for n = 1:((xf-xi)/h)+1
         theta_e_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_e(1,n) - 2*theta_e(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_e(1,n) - 2*theta_e(3,n)))*(theta_e(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_e(1,n)-theta_e(3,n)))*(theta_e(4,n)^2) + (-2*L2*uIz*veld)*theta_e(2,n) + (-2*L1*uIz*veld*cos(theta_e(1) - theta_e(3,n)))*theta_e(4,n) + (-R*L1*( L2eixo*F2*sin(theta_e(1,n) - 2*theta_e(3,n)) + 2*sin(theta_e(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
@@ -102,6 +106,7 @@ for h = [0.5, 0.1, 0.05, 0.01]
     grid
     hold on
 
+    theta_rk2_ll = zeros(2, ((xf-xi)/h)+1);
     for n = 1:((xf-xi)/h)+1
         % Calcular as aceleracoes
         theta_rk2_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
@@ -124,6 +129,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     plot(t_rk4, theta_rk4)
     grid
     hold on
+
+    theta_rk4_ll = zeros(2, ((xf-xi)/h)+1);
     for n = 1:((xf-xi)/h)+1
         % Calcular as aceleracoes
         theta_rk4_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
