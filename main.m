@@ -54,11 +54,10 @@ F2 = -0.5*m2*g;
 %              y(3);
 %            ((1/B0)*( B1*((1/A0)*( A1*(y(2)^2) + A2*(y(4)^2) + A3*y(2) + A4*y(4)+ A5)) + B2*(y(2)^2) + B3*y(4) + B4 ))];
 
-f = @(t,y) [ y(2);
-            (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))));
-             y(4);
-          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
-
+f = @(t,y) [y(2,:);
+            (1./((L1.^2).*L2.*R.*(m2.*cos(2.*y(1,:) - 2.*y(3,:)) - 2.*m1 - m2))).*( ((L1.^2).*L2.*R.*m2.*sin(2.*y(1,:) - 2.*y(3,:))).*(y(2,:).^2) + (2.*L1.*(L2.^2).*R.*m2.*sin(y(1,:)-y(3,:))).*(y(4,:).^2) + (-2.*L2.*uIz.*veld).*y(2,:) + (-2.*L1.*uIz.*veld.*cos(y(1) - y(3,:))).*y(4,:) + (-R.*L1.*( L2eixo.*F2.*sin(y(1,:) - 2.*y(3,:)) + 2.*sin(y(1,:)).*( F1.*L2 + (1/2).*L2eixo.*F2))));
+            y(4,:);
+            (1./((L2.^2).*R.*m2)).*( (-L1.*L2.*R.*m2.*cos(y(1,:) - y(3,:)) ).*( (1./((L1.^2).*L2.*R.*(m2.*cos(2.*y(1,:) - 2.*y(3,:)) - 2.*m1 - m2))).*( ((L1.^2).*L2.*R.*m2.*sin(2.*y(1,:) - 2.*y(3,:))).*(y(2,:).^2) + (2.*L1.*(L2.^2).*R.*m2.*sin(y(1,:)-y(3,:))).*(y(4,:).^2) + (-2.*L2.*uIz.*veld).*y(2,:) + (-2.*L1.*uIz.*veld.*cos(y(1) - y(3,:))).*y(4,:) + (-R.*L1.*( L2eixo.*F2.*sin(y(1,:) - 2.*y(3,:)) + 2.*sin(y(1,:)).*( F1.*L2 + (1/2).*L2eixo.*F2))))) + (L1.*L2.*R.*m2.*sin(y(1,:) - y(3,:))).*(y(2,:).^2) + (-uIz.*veld).*y(4,:) + (L2eixo.*sin(y(3,:)).*R.*F2))];
 % Condicoes Iniciais
 
 xi = 0;
@@ -81,12 +80,10 @@ for h = [0.5, 0.1, 0.05, 0.01]
     grid
     hold on
 
-    theta_e_ll = zeros(2, ((xf-xi)/h)+1);
     % Calcular as aceleracoes
-    for n = 1:((xf-xi)/h)+1
-        theta_e_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_e(1,n) - 2*theta_e(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_e(1,n) - 2*theta_e(3,n)))*(theta_e(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_e(1,n)-theta_e(3,n)))*(theta_e(4,n)^2) + (-2*L2*uIz*veld)*theta_e(2,n) + (-2*L1*uIz*veld*cos(theta_e(1) - theta_e(3,n)))*theta_e(4,n) + (-R*L1*( L2eixo*F2*sin(theta_e(1,n) - 2*theta_e(3,n)) + 2*sin(theta_e(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
-                          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_e(1,n) - theta_e(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_e(1,n) - 2*theta_e(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_e(1,n) - 2*theta_e(3,n)))*(theta_e(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_e(1,n)-theta_e(3,n)))*(theta_e(4,n)^2) + (-2*L2*uIz*veld)*theta_e(2,n) + (-2*L1*uIz*veld*cos(theta_e(1) - theta_e(3,n)))*theta_e(4,n) + (-R*L1*( L2eixo*F2*sin(theta_e(1,n) - 2*theta_e(3,n)) + 2*sin(theta_e(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_e(1,n) - theta_e(3,n)))*(theta_e(2,n)^2) + (-uIz*veld)*theta_e(4,n) + (L2eixo*sin(theta_e(3,n))*R*F2) ))];
-    end
+    theta_e_ll = zeros(2, ((xf-xi)/h)+1);
+    theta_e_ll = f(0, theta_e);
+
     % Gráfico completo
     plot(t_e, theta_e_ll);
     grid
@@ -107,11 +104,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     hold on
 
     theta_rk2_ll = zeros(2, ((xf-xi)/h)+1);
-    for n = 1:((xf-xi)/h)+1
-        % Calcular as aceleracoes
-        theta_rk2_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
-                          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk2(1,n) - theta_rk2(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk2(1,n) - 2*theta_rk2(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk2(1,n) - 2*theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk2(1,n)-theta_rk2(3,n)))*(theta_rk2(4,n)^2) + (-2*L2*uIz*veld)*theta_rk2(2,n) + (-2*L1*uIz*veld*cos(theta_rk2(1) - theta_rk2(3,n)))*theta_rk2(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk2(1,n) - 2*theta_rk2(3,n)) + 2*sin(theta_rk2(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk2(1,n) - theta_rk2(3,n)))*(theta_rk2(2,n)^2) + (-uIz*veld)*theta_rk2(4,n) + (L2eixo*sin(theta_rk2(3,n))*R*F2) ))];
-    end
+    theta_rk2_ll = f(0, theta_rk2);
+
     plot(t_rk2, theta_rk2_ll)
     grid
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
@@ -131,11 +125,7 @@ for h = [0.5, 0.1, 0.05, 0.01]
     hold on
 
     theta_rk4_ll = zeros(2, ((xf-xi)/h)+1);
-    for n = 1:((xf-xi)/h)+1
-        % Calcular as aceleracoes
-        theta_rk4_ll(:,n) = [(1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))));
-                          ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(theta_rk4(1,n) - theta_rk4(3,n)) )*( (1/((L1^2)*L2*R*(m2*cos(2*theta_rk4(1,n) - 2*theta_rk4(3,n)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*theta_rk4(1,n) - 2*theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (2*L1*(L2^2)*R*m2*sin(theta_rk4(1,n)-theta_rk4(3,n)))*(theta_rk4(4,n)^2) + (-2*L2*uIz*veld)*theta_rk4(2,n) + (-2*L1*uIz*veld*cos(theta_rk4(1) - theta_rk4(3,n)))*theta_rk4(4,n) + (-R*L1*( L2eixo*F2*sin(theta_rk4(1,n) - 2*theta_rk4(3,n)) + 2*sin(theta_rk4(1,n))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(theta_rk4(1,n) - theta_rk4(3,n)))*(theta_rk4(2,n)^2) + (-uIz*veld)*theta_rk4(4,n) + (L2eixo*sin(theta_rk4(3,n))*R*F2) ))];
-    end
+    theta_rk4_ll = f(0, theta_rk4);
 
     plot(t_rk4, theta_rk4_ll)
     grid
@@ -169,6 +159,8 @@ figure(200 + 10 + 1);
 plot(t_e, theta_e)
 grid
 hold on
+
+theta_rk2_ll = zeros(2, ((xf-xi)/h)+1);
 
 for n = 1:((xf-xi)/h)+1
     % Calcular as aceleracoes
@@ -212,6 +204,8 @@ figure(200 + 10 + 4);
 plot(t_rk4, theta_rk4)
 grid
 hold on
+
+theta_rk4_ll = zeros(2, ((xf-xi)/h)+1);
 
 for n = 1:((xf-xi)/h)+1
     % Calcular as aceleracoes
