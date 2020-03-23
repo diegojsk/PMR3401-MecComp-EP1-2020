@@ -8,7 +8,7 @@
 clear all
 clc
 %% Teste
-%% Testar Execução dos Métodos Numéricos: 
+%% Testar Execução dos Métodos Numéricos:
 
 % y' = 2x => y = x^2
 t = @(x,y) 2*x;

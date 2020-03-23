@@ -19,6 +19,6 @@ for i=1:steps
     y(:,i+1) = y(:,i) + h*k2;
     x(:,i+1) = x(:,i) + h;
 end
- Y = y;  
+ Y = y;
  X = x;
 end

@@ -1,6 +1,6 @@
 %% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
 %  Exercício Programa 1
-%  Script para analisar solucoes referentes a Questao 2a 
+%  Script para analisar solucoes referentes a Questao 2a
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 10340624
@@ -26,7 +26,7 @@ f = @(t,y) [ y(2);
              y(4);
           ( (1/((L2^2)*R*m2))*( (-L1*L2*R*m2*cos(y(1) - y(3)) )*( (1/((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2)))*( ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)))*(y(2)^2) + (2*L1*(L2^2)*R*m2*sin(y(1)-y(3)))*(y(4)^2) + (-2*L2*uIz*veld)*y(2) + (-2*L1*uIz*veld*cos(y(1) - y(3)))*y(4) + (-R*L1*( L2eixo*F2*sin(y(1) - 2*y(3)) + 2*sin(y(1))*( F1*L2 + (1/2)*L2eixo*F2))))) + (L1*L2*R*m2*sin(y(1) - y(3)))*(y(2)^2) + (-uIz*veld)*y(4) + (L2eixo*sin(y(3))*R*F2) ))];
 
-      
+
 xi = 0;
 xf = 60;
 yi = [0; 0.4; 0; -0.1];
@@ -42,6 +42,5 @@ str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
 ylabel("posicao(rad), velocidade(rad/s)");
-title(["Solucao do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);     
+title(["Solucao do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
 
-    
