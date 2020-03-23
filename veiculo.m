@@ -1,17 +1,17 @@
-%% PMR 3401 - Mec‚nica Computacional para MecatrÙnica - 2020
-%  ExercÌcio Programa 1
-%  ImplementaÁ„o de function @veiculo com as equaÁıes do veiculo
+%% PMR 3401 - Mec√¢nica Computacional para Mecatr√¥nica - 2020
+%  Exerc√≠cio Programa 1
+%  Implementa√ß√£o de function @veiculo com as equa√ß√µes do veiculo
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 
 %
 
-%% EquaÁıes do Veiculo
+%% Equa√ß√µes do Veiculo
 
 function f = veiculo(t,y)
-%% EquaÁ„o do Modelo
+%% Equa√ß√£o do Modelo
 %
-% Setar par‚metros
+% Setar par√¢metros
 L1 = 2;
 L2 = 2.5;
 L2eixo = 1.8;
@@ -24,7 +24,7 @@ veld = 80/3.6;
 F1 = -0.5*m1*g;
 F2 = -0.5*m2*g;
 
-% Vari·veis de Estado
+% Vari√°veis de Estado
 %
 % thetha1 = y(1)
 % thetha1' = y(2)
@@ -32,7 +32,7 @@ F2 = -0.5*m2*g;
 % thetha2 = y(3)
 % thetha2' = y(4)
 
-% EquaÁ„o de Movimento
+% Equa√ß√£o de Movimento
 
 % A0 = ((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2));
 % A1 = ((L1^2)*L2*R*m2*sin(2*y(1) - 2*y(3)));

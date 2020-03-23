@@ -1,6 +1,6 @@
-%% PMR 3401 - Mec‚nica Computacional para MecatrÙnica - 2020
-%  ExercÌcio Programa 1
-%  ImplementaÁ„o do MÈtodo de Runge-Kutta de 2 ordem
+%% PMR 3401 - Mec√¢nica Computacional para Mecatr√¥nica - 2020
+%  Exerc√≠cio Programa 1
+%  Implementa√ß√£o do M√©todo de Runge-Kutta de 2 ordem
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 

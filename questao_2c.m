@@ -1,5 +1,5 @@
-%% PMR 3401 - Mec‚nica Computacional para MecatrÙnica - 2020
-%  ExercÌcio Programa 1
+%% PMR 3401 - Mec√¢nica Computacional para Mecatr√¥nica - 2020
+%  Exerc√≠cio Programa 1
 %  Script para analisar solucoes referentes a Questao 2c 
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
@@ -32,7 +32,7 @@ xf = 60;
 yi = [0; 0.4; 0; -0.1];
 h = 0.01;
 
-% MÈtodo de Runge-Kutta 4 Ordem
+% M√©todo de Runge-Kutta 4 Ordem
 [t_rk4, theta_rk4] = runge_kutta_4(f, h, yi, xi, xf);
 
 figure(200 + 30 + 4);
@@ -42,4 +42,4 @@ str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
 ylabel("posicao(rad), velocidade(rad/s)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o MÈtodo de Runge-Kutta de 4 ordem e passo : 0.01"]);     
+title(["Solucao do veiculo para Vel_d = 120km/h utilizando o M√©todo de Runge-Kutta de 4 ordem e passo : 0.01"]);     
