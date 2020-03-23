@@ -1,9 +1,9 @@
-%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
-%  Exercício Programa 1
-%  Gerar animação do veiculo, baseado em exemplo_animation.m
+%% PMR 3401 - Mecï¿½nica Computacional para Mecatrï¿½nica - 2020
+%  Exercï¿½cio Programa 1
+%  Gerar animaï¿½ï¿½o do veiculo, baseado em exemplo_animation.m
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
-%           Felipe Gomes de Melo D'Elia - 
+%           Felipe Gomes de Melo D'Elia - 10340624
 %
 
 %%

@@ -3,7 +3,7 @@
 %  Implementação de function @veiculo com as equações do veiculo
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
-%           Felipe Gomes de Melo D'Elia - 
+%           Felipe Gomes de Melo D'Elia - 10340624
 %
 
 %% Equações do Veiculo

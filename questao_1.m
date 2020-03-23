@@ -3,7 +3,7 @@
 %  Script para analisar solucoes referentes a Questao 1 
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
-%           Felipe Gomes de Melo D'Elia - 
+%           Felipe Gomes de Melo D'Elia - 10340624
 %
 clear all
 clc

@@ -1,9 +1,9 @@
-%% PMR 3401 - Mecânica Computacional para Mecatrônica - 2020
-%  Exercício Programa 1
-%  Implementação do Método de Euler
+%% PMR 3401 - Mecï¿½nica Computacional para Mecatrï¿½nica - 2020
+%  Exercï¿½cio Programa 1
+%  Implementaï¿½ï¿½o do Mï¿½todo de Euler
 %
 %  Autores: Diego Jun Sato Kurashima - 10274231
-%           Felipe Gomes de Melo D'Elia - 
+%           Felipe Gomes de Melo D'Elia - 10340624
 %
 %% Euler's Method
 
