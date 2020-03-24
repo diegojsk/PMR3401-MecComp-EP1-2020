@@ -38,4 +38,5 @@ str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
 ylabel("posicao(rad), velocidade(rad/s)");
-title(["Solucao do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
+title(["Solução para m2 = 200kg","Runge-Kutta de 4 ordem e passo 0.01"]);
+set(gca, 'XLim', [xi xf])

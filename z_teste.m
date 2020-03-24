@@ -5,9 +5,8 @@
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 10340624
 %
-clear all
-clc
-%% Teste
+clear all;
+clc;
 %% Testar Execução dos Métodos Numéricos:
 
 % y' = 2x => y = x^2

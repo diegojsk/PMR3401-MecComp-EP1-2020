@@ -8,7 +8,7 @@
 %% Runge-Kutta 4 order Method
 
 function [X, Y] = runge_kutta_4(f,h,yi,xi,xf)
-%% Algorithm
+% Algorithm
 i = 1;
 y(:,i) = yi;
 x(:,i) = xi;
