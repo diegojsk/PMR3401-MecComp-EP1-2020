@@ -8,7 +8,7 @@
 
 %% Equações do Veiculo
 
-function [f] = veiculo((L1, L2, L2eixo, m1, m2, uIz, R, g, veld, F1, F2))
+function [f] = veiculo(L1, L2, L2eixo, m1, m2, uIz, R, g, veld, F1, F2)
 % Equação de Movimento
 
 % A0 = ((L1^2)*L2*R*(m2*cos(2*y(1) - 2*y(3)) - 2*m1 - m2));
