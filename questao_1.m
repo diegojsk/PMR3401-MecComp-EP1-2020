@@ -77,7 +77,7 @@ for h = [0.5, 0.1, 0.05, 0.01]
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
     ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
-    title(strcat("Solucao com Runge-Kutta de 2ª ordem e passo ", sprintf('%.2f', h)));
+    title(strcat("Solução com Runge-Kutta de 2ª ordem e passo ", sprintf('%.2f', h)));
     set(gca, 'XLim', [xi xf])
     hold off
 
@@ -98,7 +98,7 @@ for h = [0.5, 0.1, 0.05, 0.01]
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
     ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
-    title(strcat("Solucao com Runge-Kutta de 4ª ordem e passo ", sprintf('%.2f', h)));
+    title(strcat("Solução com Runge-Kutta de 4ª ordem e passo ", sprintf('%.2f', h)));
     set(gca, 'XLim', [xi xf]);
     hold off
 

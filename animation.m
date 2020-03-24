@@ -9,9 +9,9 @@
 %%
 % Este script gera uma animacao do movimento dos veiculos
 % Sendo: 
-%(xi,yi): A posicao da massa i=(1,2)
+%(xi,yi): A posição da massa i=(1,2)
 % Li: Comprimento do carro i=(1,2)
-% L2eixo: posicao do eixo do segundo carro
+% L2eixo: posição do eixo do segundo carro
 % E preciso que esteja declarado:
 % Um vetor de tempo t e os g.d.l theta(1 e 2,t), ouseja, Uma das linhas tem theta1 e
 % outra o theta2 com tempo nas colunas.

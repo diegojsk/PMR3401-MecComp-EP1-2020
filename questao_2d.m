@@ -38,5 +38,5 @@ str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
 ylabel("posição(rad), velocidade(rad/s)");
-title(["Solucao para F1 = +0.5*m1*g N","Runge-Kutta de 4 ordem e passo 0.01"]);
+title(["Solução para F1 = +0.5*m1*g N","Runge-Kutta de 4 ordem e passo 0.01"]);
 set(gca, 'XLim', [xi xf])

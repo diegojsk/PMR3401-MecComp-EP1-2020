@@ -90,8 +90,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
-    ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-    title(["Solucao completa do veiculo utilizando o Método de Euler e passo :" h]);
+    ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+    title(["Solução completa do veiculo utilizando o Método de Euler e passo :" h]);
     hold off
 
 
@@ -111,8 +111,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
-    ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-    title(["Solucao completa do veiculo utilizando o Método de Runge-Kutta de 2 ordem e passo :" h]);
+    ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+    title(["Solução completa do veiculo utilizando o Método de Runge-Kutta de 2 ordem e passo :" h]);
     hold off
 
 
@@ -132,8 +132,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
-    ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-    title(["Solucao completa do veiculo utilizando o Método de Runge-Kutta de 4 ordem e passo :" h]);
+    ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+    title(["Solução completa do veiculo utilizando o Método de Runge-Kutta de 4 ordem e passo :" h]);
     hold off
 
     i = i + 1;
@@ -172,8 +172,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 1000kg utilizando o Método de Euler e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para m2 = 1000kg utilizando o Método de Euler e passo : 0.01"]);
 hold off
 
 % Método de Runge-Kutta 2 Ordem
@@ -193,8 +193,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
 hold off
 
 % Método de Runge-Kutta 4 Ordem
@@ -217,8 +217,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
 
 hold off
 
@@ -253,8 +253,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 200kg utilizando o Método de Euler e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para m2 = 200kg utilizando o Método de Euler e passo : 0.01"]);
 
 hold off
 
@@ -276,8 +276,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
 hold off
 
 % Método de Runge-Kutta 4 Ordem
@@ -298,8 +298,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para m2 = 200kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
 
 hold off
 %% Questão 2c
@@ -333,8 +333,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o Método de Euler e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para Vel_d = 120km/h utilizando o Método de Euler e passo : 0.01"]);
 
 hold off
 
@@ -356,8 +356,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para Vel_d = 120km/h utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
 hold off
 
 % Método de Runge-Kutta 4 Ordem
@@ -378,8 +378,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para Vel_d = 120km/h utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para Vel_d = 120km/h utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
 
 hold off
 
@@ -415,8 +415,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para F1 = +0.5*m1*g N utilizando o Método de Euler e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para F1 = +0.5*m1*g N utilizando o Método de Euler e passo : 0.01"]);
 
 hold off
 
@@ -438,8 +438,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para F1 = +0.5*m1*g N utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para F1 = +0.5*m1*g N utilizando o Método de Runge-Kutta de 2 ordem e passo : 0.01"]);
 hold off
 
 % Método de Runge-Kutta 4 Ordem
@@ -460,8 +460,8 @@ grid
 str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
-ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-title(["Solucao do veiculo para F1 = +0.5*m1*g N utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
+ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+title(["Solução do veiculo para F1 = +0.5*m1*g N utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
 
 hold off
 
