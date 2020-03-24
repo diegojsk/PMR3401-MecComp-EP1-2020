@@ -5,8 +5,8 @@
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 10340624
 %
-clear all
-clc
+clear all;
+clc;
 
 %% Questao 1
 
@@ -55,8 +55,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
-    ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-    title(["Solucao completa do veiculo utilizando o Método de Euler e passo :" h]);
+    ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+    title(strcat("Solução com método de Euler e passo ", sprintf('%.2f', h)));
     set(gca, 'XLim', [xi xf])
     hold off
 
@@ -76,8 +76,8 @@ for h = [0.5, 0.1, 0.05, 0.01]
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
-    ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-    title(["Solucao completa do veiculo utilizando o Método de Runge-Kutta de 2 ordem e passo :" h]);
+    ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+    title(strcat("Solucao com Runge-Kutta de 2ª ordem e passo ", sprintf('%.2f', h)));
     set(gca, 'XLim', [xi xf])
     hold off
 
@@ -97,9 +97,9 @@ for h = [0.5, 0.1, 0.05, 0.01]
     str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2','$\ddot{\theta}$1','$\ddot{\theta}$2'};
     legend(str,'Interpreter','latex');
     xlabel("tempo(s)");
-    ylabel("posicao(rad), velocidade(rad/s) ou aceleracao(rad/s^2)");
-    title(["Solucao completa do veiculo utilizando o Método de Runge-Kutta de 4 ordem e passo :" h]);
-    set(gca, 'XLim', [xi xf])
+    ylabel("posição(rad), velocidade(rad/s) ou aceleração(rad/s^2)");
+    title(strcat("Solucao com Runge-Kutta de 4ª ordem e passo ", sprintf('%.2f', h)));
+    set(gca, 'XLim', [xi xf]);
     hold off
 
     i = i + 1;

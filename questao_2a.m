@@ -5,8 +5,9 @@
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 10340624
 %
-clear all
-clc
+clear all;
+clc;
+
 %% Questao 2a
 
 L1 = 2;
@@ -38,5 +39,5 @@ str = {'$\theta$1','$\dot{\theta}$1','$\theta$2','$\dot{\theta}$2'};
 legend(str,'Interpreter','latex');
 xlabel("tempo(s)");
 ylabel("posicao(rad), velocidade(rad/s)");
-title(["Solucao do veiculo para m2 = 1000kg utilizando o Método de Runge-Kutta de 4 ordem e passo : 0.01"]);
+title(["Solução do veículo para m2 = 1000kg","Runge-Kutta de 4 ordem e passo 0.01"]);
 
