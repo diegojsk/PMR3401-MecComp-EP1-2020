@@ -5,14 +5,18 @@
 %  Autores: Diego Jun Sato Kurashima - 10274231
 %           Felipe Gomes de Melo D'Elia - 10340624
 %
-%% Runge-Kutta 2 order Method
-
+%% Método de Rungwe-Kutta de 2 ordem
 function [X, Y] = runge_kutta_2(f,h,yi,xi,xf)
-%% Algorithm
+% f : função do tipo y' = f(x, y)
+% h : passo 
+% yi, xi : condições iniciais
+% xf : condição de parada
 i = 1;
 y(:,i) = yi;
 x(:,i) = xi;
 steps = (xf-xi)/h;
+
+% Laço Principal 
 for i=1:steps
     k1 = f(x(:,i),y(:,i));
     k2 = f(x(:,i) + h*(1/2), y(:,i) +h*k1*(1/2) );
